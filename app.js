@@ -17,7 +17,7 @@ function sum(a, b) { //eslint-disable-line
 
 // Here is the test for sum(); uncomment it to run it
 //4,7
-// testSum();
+testSum();
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -55,8 +55,10 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    var P_result = sum(a,b)[0]+c;
-    var M_result = multiply(a,b)[0]*c;
+    var plus = sum(a,b)[0];
+    var P_result = sum(plus,c)[0];
+    var multi = multiply(a,b)[0];
+    var M_result = multiply(multi,c)[0];
     var M_msg = `The product of ${a} and ${b} and ${c} is ${M_result}.`;
     var P_msg = `${a} and ${b} and ${c} sum to ${P_result}.`;
     return[P_result,M_result,P_msg,M_msg];
@@ -116,12 +118,25 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+    var ArrResult = 1;
+    var msg = "";
+for (let index = 0; index < testArray.length; index++) {
+ArrResult = multiply(ArrResult,testArray[index])[0];
+if (index == testArray.length -1) {
+    msg = msg + testArray[index];
+}else{
+    msg = msg + testArray[index] +",";
+}
+// msg = msg + testArray[index] +",";
+}
+// console.log(ArrResult)
+// console.log(msg)
+return[ArrResult,`The numbers ${msg} have a product of 24.`];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
 // testArray
-// testMultiplyArray();
+testMultiplyArray();
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
